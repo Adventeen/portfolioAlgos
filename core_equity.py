@@ -28,12 +28,13 @@ for row in csv_reader:
             soup = BeautifulSoup(source.text, "lxml")
 
             # getting lastest price
-            price = soup.find_all('li', class_='four columns')[1].b.text
+            span_list = soup.find_all('span', class_='number')
+            price = span_list[1].text
             price = price.replace(',', '')
             price = float(price)
 
             # getting roce
-            roce = soup.find_all('li', class_='four columns')[6].b.text
+            roce = span_list[6].text
             roce = roce.replace('%', '')
             roce = float(roce)
 
@@ -43,25 +44,26 @@ for row in csv_reader:
             soup = BeautifulSoup(source.text, "lxml")
 
             # getting lastest price
-            price = soup.find_all('li', class_='four columns')[1].b.text
+            span_list = soup.find_all('span', class_='number')
+            price = span_list[1].text
             price = price.replace(',', '')
             price = float(price)
 
             # getting roce
-            roce = soup.find_all('li', class_='four columns')[6].b.text
+            roce = span_list[6].text
             roce = roce.replace('%', '')
             roce = float(roce)
 
         # Value
         # getting lastest book value
-        book = soup.find_all('li', class_='four columns')[3].b.text
+        book = span_list[3].text
         book = book.replace(',', '')
         book = float(book)
 
         book_price = book/price
 
         # getting lastest book value
-        pe = soup.find_all('li', class_='four columns')[4].b.text
+        pe = span_list[4].text
         pe = pe.replace(',', '')
         pe = float(pe)
 
