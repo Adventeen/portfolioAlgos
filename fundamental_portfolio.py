@@ -25,7 +25,7 @@ for row in csv_reader:
             soup = BeautifulSoup(source.text, "lxml")
 
             # getting lastest price
-            price = soup.find_all('li', class_='four columns')[1].b.text
+            price = soup.find_all('span', class_='number')[1].text
             price = price.replace(',', '')
             price = float(price)
 
@@ -35,7 +35,7 @@ for row in csv_reader:
             soup = BeautifulSoup(source.text, "lxml")
 
             # getting lastest price
-            price = soup.find_all('li', class_='four columns')[1].b.text
+            price = soup.find_all('span', class_='number')[1].text
             price = price.replace(',', '')
             price = float(price)
 
