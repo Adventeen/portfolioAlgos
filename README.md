@@ -13,3 +13,15 @@ The programs of all momentum portfolios
 - Lower the score better the stock
 - Rebalanced Quaterly
 - Works well with small cap stocks
+
+## [Fundamental Portfolio](https://www.quantconnect.com/tutorials/strategy-library/standardized-unexpected-earnings)
+- Gets the EPS of a stock for the current quarter and the previous for quarters
+- Calculates the SUE of the stock
+- Higher the SUE, better the stock
+- Rebalanced Monthly
+
+## Momemtum Portfolio
+- Momentum portfolio using a bunch of mathematical statistics to get the best stocks in a universe
+- Rebalanced fortnightly
+
+To run it locally, download the program file and the stock list from nifty website.
