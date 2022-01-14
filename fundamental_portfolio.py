@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import statistics as st
+import time
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36',
 'referer': 'https://www.screener.in/'}
@@ -16,9 +17,12 @@ csv_writer = csv.writer(output_file)
 csv_writer.writerow(['Symbol', 'Industry', 'Price', 'SUE'])
 
 
+# for row in ['TCS', 'INFY', '3MINDIA']:
 for row in csv_reader:
     try:
         stock = row[2]
+        # stock = row
+        print(stock)
         try:
             url = f'https://www.screener.in/company/{ stock }/consolidated/'
             source = requests.get(url, headers)
@@ -57,7 +61,9 @@ for row in csv_reader:
             print(stock)
 
     except Exception as e:
-        print(f'{ row[2] } not added as {e}')
+        print(f'{ row[0] } not added as {e}')
+
+    time.sleep(1)
 
 
 output_file.close()
