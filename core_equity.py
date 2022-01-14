@@ -4,6 +4,7 @@ import csv
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
+import time
 
 # these portfolio works well on small cap stocks
 # lower the score better the stock
@@ -19,6 +20,7 @@ csv_reader = csv.reader(input_file)
 df = pd.DataFrame(columns=['Stock', 'Price', 'B/P', 'E/P', 'ROCE', 'OPM', 'ROA', 'ret'])
 
 for row in csv_reader:
+    time.sleep(1)
 # for stock in ['HDFCBANK', 'ITC', 'CROMPTON']:
     try:
         stock = row[2]
